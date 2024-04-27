@@ -21,6 +21,7 @@ padding: 10px;
    width: 100%; 
     height: fit-content;
     display: inline-flex;
+    border: 1px solid #000;
 }
 #menu>#logo{
     display: inline-flex;
@@ -36,6 +37,7 @@ background-color:yellowgreen;
    justify-content: space-evenly;
     text-align: center;
     padding: 14px 20px;
+   
 }
 #menu>#nav a:hover{
     background-color: white;
@@ -45,7 +47,7 @@ background-color:yellowgreen;
 #slider> img{
 height: 100px;
 width: 1409px;
-
+border: 1px solid #000;
 }
 #content{
     display: flex;
