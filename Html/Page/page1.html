@@ -1,0 +1,254 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Page1</title>
+    <style>
+        *{
+            margin: 0px;
+            padding: 0px;
+        }
+        .main{
+            border: 1px solid black;
+            margin-top: 10px;
+            height: 90vh;
+            /* background-color: aqua; */
+        }
+        .resultform{
+            border: 1px solid rgb(12, 189, 159);
+            margin-top: 10px; 
+            width:fit-content;
+            background-color: #c40b89;
+            text-align: center;
+            margin: auto;
+            box-sizing: border-box;
+            width: 30%;
+            height: 40%;
+        }
+        input{
+           width: 335px;
+           height:30px;
+           color:red;
+           border-radius: 20px;
+        }
+        button{
+            width: 31%;
+            margin-left: 15px;
+            box-sizing: border-box;
+            height: 35px;
+            margin-top: 5px;
+            background-color: gold;
+            border-radius: 10px;
+        }
+        .resultsheet{
+            border: 2px solid black;
+            width: 40%;
+            height: 40%;
+            text-align: center;
+            margin: auto;
+            box-sizing: border-box;
+            margin-top: 80px; 
+            background-color: aqua;
+            font-size: 19px;
+        }
+        h1{
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+    <div class="main">
+        <h1>STUDENT FORM</h1>
+        <div class="resultform">
+            <table>
+                <tr>
+                <td>
+                    <label for="name">Name:</label>
+                </td>
+                <td>
+                    <input type="text"  id="name">
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <label for="Roll">Roll No:</label>
+                </td>
+                <td>
+                    <input type="text"  id="roll">
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <label for="Physics">Physics:</label>
+                </td>
+                <td>
+                    <input type="text"  id="phy">
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <label for="Chemistry">Chemistry:</label>
+                </td>
+                <td>
+                    <input type="text" id="che">
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <label for="Math">Math:</label>
+                </td>
+                <td>
+                    <input type="text" id="math">
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <label for="Biology">Biology:</label>
+                </td>
+                <td>
+                    <input type="text" id="bio">
+                </td>
+            </tr>
+            
+            </table>
+            <button onclick="findResult()">Submit</button>
+            <button onclick="cls()">Clear</button>
+        </div>
+        <div class="resultsheet" id="resultsheet" style="display: none;">
+            <table class="biswa">
+                <h2>RESULT SHEET</h2>
+                <tr>
+                    <td>Name :</td>
+                    <td>
+                        <label id="lblname"></label>
+                    </td>
+                </tr>
+                <tr>
+                    <td>Roll no :</td>
+                    <td>
+                        <label id="lblroll"></label>
+                    </td>
+                </tr>
+                <tr>
+                    <td>Physics :</td>
+                    <td>
+                        <label id="lblphy"></label>
+                    </td>
+                </tr>
+                <tr>
+                    <td>Chemistry :</td>
+                    <td>
+                        <label id="lblche"></label>
+                    </td>
+                </tr>
+                <tr>
+                    <td>Math :</td>
+                    <td>
+                        <label id="lblmath"></label>
+                    </td>
+                </tr>
+                <tr>
+                    <td>Biology :</td>
+                    <td>
+                        <label id="lblbio"></label>
+                    </td>
+                </tr>
+                <tr>
+                    <td>Total :</td>
+                    <td>
+                        <label id="lbltotal"></label>
+                    </td>
+                </tr>
+                <tr>
+                    <td>Average :</td>
+                    <td>
+                        <label id="lblavg"></label>
+                    </td>
+                </tr>
+                <tr>
+                    <td>Percentage :</td>
+                    <td>
+                        <label id="lblper"></label>
+                    </td>
+                </tr>
+            </table>
+        </div>
+    </div>
+    <script>
+        function cls(){
+           document.getElementById('name').value='';
+           document.getElementById('roll').value='';
+           document.getElementById('phy').value=0;
+           document.getElementById('che').value=0;
+           document.getElementById('math').value=0;
+           document.getElementById('bio').value=0;
+
+            document.getElementById('resultsheet').setAttribute('style','display:none');
+        }
+        function findResult(){
+            var name = document.getElementById('name').value;
+            var roll =document.getElementById('roll').value;
+            var phy=parseInt(document.getElementById('phy').value);
+            var che =parseInt(  document.getElementById('che').value);
+            var math =parseInt( document.getElementById('math').value);
+            var bio= parseInt(document.getElementById('bio').value);
+
+            pattern=/^\d+$/;
+            if(name==''){
+                alert('please Enter your Name....');
+                document.getElementById('name').focus();
+            } else if(roll==''){
+                alert('Please Enter your Roll no....');
+                document.getElementById('roll').focus();
+            } else if(roll.length!=4){
+                alert('Roll no must be 4 character....');
+                document.getElementById('roll').focus();
+            }else if(!pattern.test(roll)){
+                alert('Roll no must be numeric ....');
+                document.getElementById('roll').focus();
+            }else if(phy<0){
+                alert('please enter correct physics mark....');
+                document.getElementById('phy').focus();
+            }else if(!pattern.test(phy)){
+                alert('Physics mark  must be numeric ....');
+                document.getElementById('phy').focus();
+            }else if(che<0){
+                alert('please enter correct chemistry mark....');
+                document.getElementById('che').focus();
+            }else if(!pattern.test(che)){
+                alert('chemistry mark  must be numeric ....');
+                document.getElementById('che').focus();
+            }else if(math<0){
+                alert('please enter correct math mark....');
+                document.getElementById('math').focus();
+            }else if(!pattern.test(math)){
+                alert('math mark  must be numeric ....');
+                document.getElementById('math').focus();
+            }else if(bio<0){
+                alert('please enter correct biology mark....');
+                document.getElementById('bio').focus();
+            }else if(!pattern.test(bio)){
+                alert('biology mark  must be numeric ....');
+                document.getElementById('bio').focus();
+            }
+            else{
+                document.getElementById('resultsheet').setAttribute('style','display:block');
+            var Total=phy + che + math + bio ;
+            var Average=Total/4;
+            var Percentage=(Total/400)*100;
+
+            document.getElementById('lblname').innerText=name;
+            document.getElementById('lblroll').innerText=roll;
+            document.getElementById('lblphy').innerText=phy;
+            document.getElementById('lblche').innerText=che;
+            document.getElementById('lblmath').innerText=math;
+            document.getElementById('lblbio').innerText=bio;
+            document.getElementById('lbltotal').innerText=Total;
+            document.getElementById('lblavg').innerText=Average;
+            document.getElementById('lblper').innerText=Percentage +'%';
+            }
+        }
+    </script>
+</body>
+</html>
