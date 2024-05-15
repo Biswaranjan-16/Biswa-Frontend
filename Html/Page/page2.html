@@ -1,0 +1,255 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>page 2</title>
+    <style>
+        *{
+            padding: 0px;
+            margin: 0px;
+        }
+        .container{
+            border: 1px solid black;
+            height: 95vh;
+            margin-top: 10px;
+        }
+        .result{
+            border: 1px solid red;
+            background-color: aqua;
+            width: 30%;
+            box-sizing: border-box;
+            text-align: center;
+           height: 40%;
+            margin: auto;
+            margin-top: 10px;
+            border-radius:15px;
+        }
+        input{
+            width: 320px;
+            height: 30px;
+            border-radius: 8px;
+        }
+        h1{
+            text-align: center;
+        }
+        h2{
+            text-align: center;
+        }
+        button{
+            width: 150px;
+            margin: auto;
+            margin-left: 10px;
+            height: 40px;
+            margin-top: 10px;
+            background-color: goldenrod;
+           border-radius: 5px;
+        }
+        .sheet{
+            border: 2px solid black;
+            width: 40%;
+            margin: auto;
+            margin-top: 10px;
+            background-color: greenyellow;
+            height: 300px;
+            font-size: 23px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Student registration</h1>
+        <div class="result">
+            <table>
+                <tr>
+                    <td>
+                        <label for="name">Name:</label>
+                    </td>
+                    <td>
+                        <input type="text" id="name">
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <label for="roll">Roll No:</label>
+                    </td>
+                    <td>
+                        <input type="text" id="roll">
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <label for="phy">Physics:</label>
+                    </td>
+                    <td>
+                        <input type="text" id="phy">
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <label for="che">Chemistry:</label>
+                    </td>
+                    <td>
+                        <input type="text" id="che">
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <label for="math">Math:</label>
+                    </td>
+                    <td>
+                        <input type="text" id="math">
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <label for="bio">Biology:</label>
+                    </td>
+                    <td>
+                        <input type="text" id="bio">
+                    </td>
+                </tr>
+            </table>
+            <button onclick="findResult()">Submit</button>
+            <button onclick="cls()">Clear</button>
+        </div>
+        <div class="sheet" id="sheet" style="display: none;">
+            <h2>Result sheet</h2>
+            <table>
+            <tr>
+                <td>Name:</td>
+                <td>
+                    <label id="lblname"></label>
+                </td>
+            </tr>
+            <tr>
+                <td>Roll No:</td>
+                <td>
+                    <label id="lblroll"></label>
+                </td>
+            </tr>
+            <tr>
+                <td>Physics:</td>
+                <td>
+                    <label id="lblphy"></label>
+                </td>
+            </tr>
+            <tr>
+                <td>Chemistry:</td>
+                <td>
+                    <label id="lblche"></label>
+                </td>
+            </tr>
+            <tr>
+                <td>Math:</td>
+                <td>
+                    <label id="lblmath"></label>
+                </td>
+            </tr>
+            <tr>
+                <td>Biology:</td>
+                <td>
+                    <label id="lblbio"></label>
+                </td>
+            </tr>
+            <tr>
+                <td>Total:</td>
+                <td>
+                    <label id="lbltotal"></label>
+                </td>
+            </tr>
+            <tr>
+                <td>Average:</td>
+                <td>
+                    <label id="lblavg"></label>
+                </td>
+            </tr>
+            <tr>
+                <td>Percentage:</td>
+                <td>
+                    <label id="lblper"></label>
+                </td>
+            </tr>
+        </table>
+        </div>
+    </div>
+    <script>
+        function cls(){
+        var name=document.getElementById('name').value='';
+        var roll=document.getElementById('roll').value='';
+        var phy=document.getElementById('phy').value='';
+        var che=document.getElementById('che').value='';
+        var math=document.getElementById('math').value='';
+        var bio=document.getElementById('bio').value='';
+        document.getElementById('sheet').setAttribute('style','display:none');
+        }
+    function findResult(){
+        var name=document.getElementById('name').value;
+        var roll=document.getElementById('roll').value;
+        var phy=parseInt(document.getElementById('phy').value);
+        var che=parseInt(document.getElementById('che').value);
+        var math=parseInt(document.getElementById('math').value);
+        var bio=parseInt(document.getElementById('bio').value);
+
+
+        pattern=/^\d+$/;
+            if(name==''){
+                alert('please Enter your Name....');
+                document.getElementById('name').focus();
+            } else if(roll==''){
+                alert('Please Enter your Roll no....');
+                document.getElementById('roll').focus();
+            } else if(roll.length!=4){
+                alert('Roll no must be 4 character....');
+                document.getElementById('roll').focus();
+            }else if(!pattern.test(roll)){
+                alert('Roll no must be numeric ....');
+                document.getElementById('roll').focus();
+            }else if(phy<0){
+                alert('please enter correct physics mark....');
+                document.getElementById('phy').focus();
+            }else if(!pattern.test(phy)){
+                alert('Physics mark  must be numeric ....');
+                document.getElementById('phy').focus();
+            }else if(che<0){
+                alert('please enter correct chemistry mark....');
+                document.getElementById('che').focus();
+            }else if(!pattern.test(che)){
+                alert('chemistry mark  must be numeric ....');
+                document.getElementById('che').focus();
+            }else if(math<0){
+                alert('please enter correct math mark....');
+                document.getElementById('math').focus();
+            }else if(!pattern.test(math)){
+                alert('math mark  must be numeric ....');
+                document.getElementById('math').focus();
+            }else if(bio<0){
+                alert('please enter correct biology mark....');
+                document.getElementById('bio').focus();
+            }else if(!pattern.test(bio)){
+                alert('biology mark  must be numeric ....');
+                document.getElementById('bio').focus();
+            }
+            else{
+                document.getElementById('sheet').setAttribute('style','display:block');
+
+        var total=phy+che+math+bio;
+        var avg=total/4;
+        var per=total/400*100;
+
+
+        document.getElementById('lblname').innerText=name; 
+        document.getElementById('lblroll').innerText=roll; 
+        document.getElementById('lblphy').innerText=phy; 
+        document.getElementById('lblche').innerText=che; 
+        document.getElementById('lblmath').innerText=math; 
+        document.getElementById('lblbio').innerText=bio; 
+        document.getElementById('lbltotal').innerText=total; 
+        document.getElementById('lblavg').innerText=avg;
+        document.getElementById('lblper').innerText=per +'%';
+
+            }
+    }
+</script>
+</body>
+</html>
