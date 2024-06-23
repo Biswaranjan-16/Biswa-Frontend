@@ -32,7 +32,7 @@ function BindTable() {
       data += `<td>${employees[i].Email}</td>`;
       data += `<td>${employees[i].Phone}</td>`;
       data += `<td>${employees[i].Job}</td>`;
-      data += `<td><button onclick=editEmloyee(${i})>Edit</button>`;
+      data += `<td><button onclick=editEmployee(${i})>Edit</button>`;
       data += `<td><button onclick=deleteEmployee(${i})>Delete</button></td>`;
       data += "</tr>";
     }
@@ -65,7 +65,7 @@ function validate(name, email, phone, job) {
   return flag;
 }
 
-function editEmloyee(index) {
+function editEmployee(index) {
   alert(index);
   let employees = JSON.parse(localStorage.getItem("employees"));
   let employee = employees[index];

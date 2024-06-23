@@ -1,0 +1,55 @@
+*{
+    padding: 0;
+    margin: 0;
+}
+
+h1{
+    text-align: center;
+}
+
+.form-field{
+    text-align: center;
+    padding-top: 20px;
+    background-color: rebeccapurple;
+    height: 70px;
+}
+
+.btn{
+   width: 40%;
+    color: white;
+    font-weight: bold;
+    border-radius: 10px;
+    right: 80px;
+
+}
+.form{
+    background-color: rebeccapurple;
+   
+}
+
+.formlabel{
+    font-size:large;
+    font-weight: bold;
+}
+
+.inputfield{
+   height: 30px;
+   width: 230px;
+   
+}
+
+.add{
+    border: 3px solid blue;
+    margin-top: 10px;
+    margin: 0;
+    position: absolute;
+    top: 80%;
+   
+}
+
+.view{
+    
+    margin-top:29px;
+    border: 3px solid blue;
+  
+}
