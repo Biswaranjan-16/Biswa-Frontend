@@ -37,8 +37,7 @@ function BindTable() {
       data += "</tr>";
     }
   } else {
-    data +=
-      "<tr><td colspan='6'><h4 style='text-align:center'>No Record Found</h4></td></tr>";
+    data += "<tr><td colspan='6'><h4 style='text-align:center'>No Record Found</h4></td></tr>";
   }
 
   document.getElementById("tabledata").innerHTML = data;
@@ -70,7 +69,7 @@ function editEmloyee(index) {
   alert(index);
   let employees = JSON.parse(localStorage.getItem("employees"));
   let employee = employees[index];
- 
+  
   document.getElementById("txtName").value = employee.Name;
   document.getElementById("txtEmail").value = employee.Email;
   document.getElementById("txtPhone").value = employee.Phone;
