@@ -23,6 +23,7 @@ function add() {
 }
 function BindTable() {
   let employees = JSON.parse(localStorage.getItem("employees"));
+  alert(employees);
   let data = "";
   if (employees != null && employees.length > 0) {
     for (let i = 0; i < employees.length; i++) {
