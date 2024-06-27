@@ -6,7 +6,7 @@ function add() {
     let price = document.getElementById("bookprice").value;
     let image = document.getElementById("bookimage").value;
     if (validate(id,name,author,price,image)) {
-      alert("Validation ok");
+  
       let book = {
         Id:id,
         Name: name,
@@ -19,37 +19,41 @@ function add() {
       arrBooks.push(book);
       localStorage.setItem("books", JSON.stringify(arrBooks));
   
-      BindTable();
+      alert("Record Added successfully!!!");
+      window.location.href='view.html';
     }
+    editBook(index);
 
     }
 
 
 function BindTable(){
+ 
     let books = JSON.parse(localStorage.getItem("books"));
+  
   let data = "";
-  if (books != null && books.length > 0) {
-    for (let i = 0; i < books.length; i++) {
-      
-   let data='<tr>'
-
-                      data +=`<td>1</td>`;
-                   data +=`<td>${books[i].id}</td>`;
-                     data +=`<td>${books[i].name}</td>`;
-                      data +=`<td>${books[i].author}</td>`;
-                        data +=`<td>${books[i].price}</td>`;
-                      data +=`<td>${books[i].image}</td>`;
-                      data += `<td><button >Edit</button>`;
-                      data += `<td><button>Delete</button></td>`;
-                data += '</tr>'
-
-               
+  if (books != null && books.length > 0) 
+  {
+    for (let i = 0; i < books.length; i++) 
+    {
+        data+='<tr>';
+        data +=`<td>1</td>`;
+        data +=`<td>${books[i].Id}</td>`;
+        data +=`<td>${books[i].Name}</td>`;
+        data +=`<td>${books[i].Author}</td>`;
+        data +=`<td>${books[i].Price}</td>`;
+        data +=`<td><img src='${books[i].Image}' alt=""/></td>`;
+        data += `<td><button  onclick=editBook(${i})>Edit</button>`;
+        data += `<td><button onclick=deleteBook(${i})>Delete</button></td>`;
+        data += '</tr>';  
     }  
-} else {
+  } 
+  else 
+  {
     data += "<tr><td colspan='6'><h4 style='text-align:center'>No Record Found</h4></td></tr>";
   }
-
-  document.getElementById("tabledata").innerHTML =data;        
+  
+  document.getElementById('tabledata').innerHTML = data;       
 }
 
  function validate(id,name,author,price,image) {
@@ -76,4 +80,60 @@ function BindTable(){
       }
       return true;
     }
-    
+function editBook(index){
+alert(index);
+window.location.href='index.html';
+let books = JSON.parse(localStorage.getItem("books"));
+let book =books[index];
+
+document.getElementById("bookid").value=book.Id;
+window.location.href='index.html';
+alert("hi");
+// document.getElementById("bookname").value=book.Name;
+// document.getElementById("bookauthor").value=book.Author;
+// document.getElementById("bookprice").value=book.Price;
+// document.getElementById("bookimage").value=book.Image;
+
+document.getElementById("btnAdd").setAttribute("style", "display:none");
+ document.getElementById("btnUpdate").setAttribute("style", "display:block");
+
+  }
+
+  function updateBook() {
+    alert("Update button clicked");
+  
+    let id = document.getElementById("bookid").value;
+    let name = document.getElementById("bookname").value;
+    let author = document.getElementById("bookauthor").value;
+    let price = document.getElementById("bookprice").value;
+    let image = document.getElementById("bookimage").value;
+
+    let books = JSON.parse(localStorage.getItem("books"));
+   
+    books[index].Id = id;
+     books[index].Name = name;
+    books[index].Author = author;
+    books[index].Price = price;
+    books[index].Image = image;
+ 
+    localStorage.setItem("books", JSON.stringify(books));
+  
+    alert("Record Updated Successfully !!");
+  
+    BindTable();
+  }
+
+   function deleteBook(index) {
+    let response = confirm("Are you sure you want to delete record?");
+    if (response) {
+      let books = JSON.parse(localStorage.getItem("books"));
+      let newBooks = [];
+      for (let i = 0; i < books.length; i++) {
+        if (i !== index) {
+          newBooks.push(books[i]);
+        }
+      }
+      localStorage.setItem("books", JSON.stringify(newBooks));
+      BindTable();
+    }
+  }
