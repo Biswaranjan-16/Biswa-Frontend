@@ -28,7 +28,7 @@ function add() {
 
 
 function BindTable(){
- 
+
     let books = JSON.parse(localStorage.getItem("books"));
   
   let data = "";
@@ -37,7 +37,7 @@ function BindTable(){
     for (let i = 0; i < books.length; i++) 
     {
         data+='<tr>';
-        data +=`<td>1</td>`;
+        data +=`<td>${i+1}</td>`;
         data +=`<td>${books[i].Id}</td>`;
         data +=`<td>${books[i].Name}</td>`;
         data +=`<td>${books[i].Author}</td>`;
@@ -56,7 +56,7 @@ function BindTable(){
   document.getElementById('tabledata').innerHTML = data;       
 }
 
- function validate(id,name,author,price,image) {
+function validate(id,name,author,price,image) {
         if (id == "") {
             alert("Please Enter Book Id");
             document.getElementById("bookid").focus();
