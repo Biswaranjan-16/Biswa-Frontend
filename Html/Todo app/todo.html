@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link href="todo.css" rel="stylesheet" type="text/css">
+</head>
+<body>
+    <div class="container">
+        <h1 id="title">MY TODO APP</h1>
+        
+        <div id="form-section">
+            <p>Enter Your Task</p>
+            <input type="text" id="task" placeholder="Enter Task"/>
+            <button onclick="addTask()">ADD</button>
+        </div>
+        
+        <div id="list-section">
+          
+        </div>
+    </div>
+    <script src="js/jquery-3.7.1.js"></script>
+    <script>
+        let todos =[];
+        let nextId =1;
+       function addTask(){
+           let task = $("#task").val().trim();
+           if(task!="")
+           {
+              let itemFound=todos.find(function(item){
+                   return item.title == task ;
+              });     
+              if(itemFound){
+               alert("Item already Added");
+              }else{
+                todos.push({
+                id:nextId++,
+                title:task,
+                completed:false
+             });
+           }
+           showList();
+           }
+           else{
+            alert("Please enter a task");
+            $("#task").focus();
+           }
+       }
+
+       function showList(){
+            console.log(todos);
+            let data=``;
+            data+=`<ol>`;
+            for(let todo of todos){
+                data+=`<li><input type='checkbox' onclick='taskComplete(${todo.id})'/>`;
+                data+=`${todo.title}`;
+                
+                data+=`<button onclick=remove(${todo.id})>Delete</button>`;
+                data+=`</li>`;
+            }
+            data = data.trim();
+            data+=`</ol>`;
+            $("#list-section").html(data);
+       }
+
+       function remove(id){
+        
+          if(confirm('Are you sure you want to remove this task?')){
+            todos = todos.filter(function(item){
+                      return item.id !== id;
+            });
+            
+            showList();
+          }
+       }
+
+       function taskComplete(id){
+            alert(id);
+            let data=``;
+            data+=`<ol>`;
+            for(let todo of todos){
+                if(todo.id===id){ 
+                  data+=`<li><input type='checkbox' checked onclick='taskComplete(${todo.id})'/>`;
+                  data+=`<span style='text-decoration: line-through;'>${todo.title}</span>`;
+                  let index = todos.indexOf(todo);
+                  todos[index].completed=true;
+                }else{
+                    if(todo.completed){
+                        data+=`<li><input type='checkbox' checked onclick='taskComplete(${todo.id})'/>`;
+                        data+=`<span style='text-decoration: line-through;'>${todo.title}</span>`;
+                    }else{
+                        data+=`<li><input type='checkbox'  onclick='taskComplete(${todo.id})'/>`;
+                            data+=`<span>${todo.title}</span>`;
+                    }
+                  
+                }
+                data+=`<button onclick=remove(${todo.id})>Delete</button>`;
+                data+=`</li>`;
+            }
+            data = data.trim();
+            data+=`</ol>`;
+            $("#list-section").html(data);
+       }
+    </script>
+</body>
+</html>

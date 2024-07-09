@@ -1,0 +1,82 @@
+*{
+    padding:0;
+    margin:0;
+    box-sizing: border-box;
+}
+
+
+body{
+    background-color: azure;
+    padding: 2%;
+}
+
+.container{
+    /* border: 1px solid black; */
+    height: 85vh;
+    width:80vw;
+    margin: auto;
+    background-color: rgb(240, 240, 123);
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+
+#title{
+    text-align: center;
+    color:blue;
+    margin-bottom: 2%;
+}
+
+#form-section{
+    width: 50%;
+    margin: auto;
+    /* border: 1px solid red; */
+    border-radius: 5px;
+    padding: 2%;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    p{
+        font-size:20px;
+        color:tomato;
+    }
+    input{
+        width: 80%;
+        height: 30px;
+    }
+    button{
+        width: 15%;
+        height: 30px;
+        background-color: brown;
+        color:white;
+        border-radius: 5px;
+
+        
+    }
+}
+
+#list-section{
+    
+    width: 50%;
+    margin-top: 1%; 
+    margin-left: 25%;
+    border-radius: 5px;
+    padding: 2%;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+ol{
+    list-style: none;
+    li{
+        width: 100%;
+        border: 1px solid red;
+        padding: 1%;
+        margin: 1%;
+    }
+    button{
+        float: right;
+        background-color: red;
+        color:white;
+        border-radius: 5px;
+        padding: 2px;
+    }
+}
+
+
+
+
