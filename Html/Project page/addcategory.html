@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Add Category</title>
+  <style>
+    body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f0f0f0;
+}
+
+.container {
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
+}
+
+header {
+    background-color: #333;
+    color: white;
+    padding: 10px;
+    text-align: center;
+}
+
+nav {
+    background-color: #333;
+    color: white;
+    width: 200px;
+    padding-top: 20px;
+    height: 100%;
+    position: fixed;
+}
+
+nav ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+nav ul li {
+    padding: 10px;
+}
+
+nav ul li a {
+    color: white;
+    text-decoration: none;
+    display: block;
+}
+
+nav ul li a:hover {
+    background-color: #575757;
+}
+
+main {
+    margin-left: 200px;
+    padding: 20px;
+}
+
+.add-category-form {
+    background-color: white;
+    padding: 20px;
+    border-radius: 5px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    max-width: 500px;
+    margin: 20px auto;
+}
+
+.add-category-form form {
+    display: flex;
+    flex-direction: column;
+}
+
+.add-category-form label {
+    margin-bottom: 10px;
+    font-weight: bold;
+}
+
+.add-category-form input {
+    padding: 10px;
+    margin-bottom: 20px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+.add-category-form button {
+    padding: 10px;
+    background-color: #28a745;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.add-category-form button:hover {
+    background-color: #218838;
+}
+  </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>Add Category</h1>
+        </header>
+        <nav>
+            
+        </nav>
+        <main>
+            <div class="add-category-form">
+                <form action="#" method="post">
+                    <label for="category-name">Category Name</label>
+                    <input type="text" id="category-name" name="category-name" required>
+                    <button type="submit">Add Category</button>
+                </form>
+            </div>
+        </main>
+    </div>
+</body>
+</html>
