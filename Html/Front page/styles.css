@@ -1,0 +1,23 @@
+/* Custom Styles */
+.hero-section {
+    background-image: url('https://via.placeholder.com/1200x600');
+    background-size: cover;
+    background-position: center;
+    height: 100vh;
+}
+
+.hero-section .container {
+    max-width: 600px;
+}
+
+.about-section img {
+    border-radius: 10px;
+}
+
+.services-section .card {
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+footer {
+    background-color: #343a40;
+}
