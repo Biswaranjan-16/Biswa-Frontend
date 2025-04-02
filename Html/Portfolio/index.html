@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Biswaranjan Biswal java developer</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        body{
+            background-color: rgb(0, 0, 33);
+            color: white;
+            font-family: 'Poppins',sans-serif;
+        }
+        nav{
+            display: flex;
+            justify-content:space-around;
+            align-items: center;
+            height: 80px;
+            background-color: rgb(17, 17, 82);
+        }
+        nav ul{
+            display: flex;
+            justify-content: center;       
+        }
+        nav ul li{
+            list-style: none;
+            margin: 0 23px;
+        }
+        nav ul li a{
+          text-decoration: none;
+            color: white;
+        }
+        nav ul li a:hover{
+          font-size: 1.04rem;
+            color:rgb(62, 62, 214);
+        }
+        main hr{
+            border: 0;
+            background: #9c97f1;
+            height: 1.2px;
+            margin: 40px 84px;
+        }
+        .left{
+            font-size: 1.5rem;
+        }
+        .firstSection{
+            display: flex;
+            justify-content: space-around;
+            align-items: center;
+            margin: 130px 0;
+
+        }
+        .firstSection div{
+            width: 30%;
+            
+        }
+        .firstSection img{
+            width: 80%;
+            margin: 50px 0;
+        }
+        .leftSection{
+          
+            font-size: 3rem;
+        }
+        .rightSection{
+            width: 80%;
+        }
+        .purple{
+            color:rgb(146, 95, 194) ;
+        }
+        #element{
+            color:rgb(146, 95, 194) ;
+        }
+        .secondSection{
+            max-width: 80vw;
+            margin: auto;
+        }
+        
+    </style>
+</head>
+<body>
+    <header>
+        <nav>
+
+            <div class="left">Biswaranjan's Portfolio</div>
+            <div class="right">
+                <ul>
+                      <li><a href="\">Home</a></li>
+                     <li><a href="\">About</a></li>
+                     <li><a href="\">Service</a></li>
+                    <li><a href="\">Projects</a></li>
+                     <li><a href="\">Contact Me</a></li>
+                </ul>
+            </div>
+        </nav>
+
+    </header>
+
+    <main>
+        <section class="firstSection">
+            <div class="leftSection">Hi,My name is 
+                <span class="purple">Biswaranjan</span>
+                <div>And I Am a Passionate </div>
+                <span id="element"></span>
+            </div>
+            <div class="rightSection">
+                <img src="developer.png" alt="developer image">
+            </div>
+        </section>
+<hr>
+        <section class="secondSection">
+            <h1>Past Experience</h1>
+        </section>
+    </main>
+    <script src="https://unpkg.com/typed.js@2.1.0/dist/typed.umd.js"></script>
+    <script>
+        var typed = new Typed('#element', {
+          strings: ['Java Developer.',' Web Developer.','MYSQL Developer'],
+          typeSpeed: 50,
+        });
+      </script>
+</body>
+</html>
